@@ -9,6 +9,7 @@ function App() {
     expectedReturn: 6,
     duration: 10,
   });
+  const isInputValid = userInput.duration >= 1;
   function handleChange(inputIndentifier, newValue) {
     setUserInput((prevUserInput) => {
       return {
@@ -21,7 +22,10 @@ function App() {
   return (
     <>
       <Filter userInput={userInput} onChange={handleChange} />
-      <Result userInput={userInput} />
+      {!isInputValid && (
+        <p className="center">Duration must be at least 1 year.</p>
+      )}
+      {isInputValid && <Result userInput={userInput} />}
     </>
   );
 }

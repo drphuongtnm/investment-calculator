@@ -22,13 +22,14 @@ export default function Result({ userInput }) {
             row.valueEndOfYear -
             row.annualInvestment * row.year -
             initialInvestment;
+          const totalAmountInvested = row.valueEndOfYear - totalInterest;
           return (
             <tr key={row.year}>
               <td>{row.year}</td>
               <td>{formatter.format(row.valueEndOfYear)}</td>
               <td>{formatter.format(row.interest)}</td>
               <td>{formatter.format(totalInterest)}</td>
-              <td></td>
+              <td>{formatter.format(totalAmountInvested)}</td>
             </tr>
           );
         })}
